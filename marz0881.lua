@@ -22,7 +22,7 @@ local AlertCounter = 0
 local AlertLog = {}  
 local isCooldown = false  
 
--- Âm thanh cảnh báo  
+-- Âm thanh cảnh báo độc quyền  
 local alertSound = Instance.new("Sound")  
 alertSound.SoundId = "rbxassetid://9126403453"  
 alertSound.Volume = 5  
@@ -99,8 +99,7 @@ RunService.Heartbeat:Connect(function()
    local found = false  
    for _, child in ipairs(WS:GetDescendants()) do  
       -- **QUAN TRỌNG: Phát hiện tín hiệu cảnh báo trước sét**  
-      -- Bao gồm: PointLight, BillboardGui, tên chứa "warning/alert/flash"  
-      if child:IsA("PointLight") or child:IsA("BillboardGui") or child:IsA("SelectionBox") or child.Name:lower():find("warning") or child.Name:lower():find("alert") or child.Name:lower():find("flash") then  
+      if child:IsA("PointLight") or child:IsA("BillboardGui") or child:IsA("SelectionBox") or child:IsA("Highlight") or child:IsA("Beam") or child:IsA("ParticleEmitter") or child.Name:lower():find("warning") or child.Name:lower():find("alert") or child.Name:lower():find("flash") or child.Name:lower():find("lightning") or child.Name:lower():find("storm") then  
          
          -- Kiểm tra hiệu ứng có thuộc cây của người chơi không  
          local isOnPlayerTree = false  
@@ -141,7 +140,7 @@ RunService.Heartbeat:Connect(function()
 end)  
 
 -- **PHƯƠNG ÁN DỰ PHÒNG: BẮT SỰ KIỆN TỪ GAME**  
-local warningEvent = ReplicatedStorage:FindFirstChild("LightningWarning") or ReplicatedStorage:FindFirstChild("StormWarning")  
+local warningEvent = ReplicatedStorage:FindFirstChild("LightningWarning") or ReplicatedStorage:FindFirstChild("StormWarning") or ReplicatedStorage:FindFirstChild("TreeWarning")  
 if warningEvent then  
    warningEvent.OnClientEvent:Connect(function(tree)  
       if AlertToggle and tree then  
