@@ -35,7 +35,7 @@ T1:CreateToggle({
 
 T1:CreateParagraph({
     Title = "📌 Hướng Dẫn Ra-đa Sét",
-    Content = "Ra-đa sẽ báo 5 lần, lần 4 hãy hái nhé!\nĐừng trồng cùng với người khác như vậy sẽ lỗi script."
+    Content = "Ra-đa sẽ báo 4 lần, lần 3 hãy hái nhé!\nĐừng trồng cùng với người khác như vậy sẽ lỗi script."
 })
 
 -- Sound Pre-load
